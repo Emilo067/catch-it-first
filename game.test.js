@@ -4,7 +4,7 @@ describe('game tests', () => {
     it('init game', () => {
         const game = new Game()
 
-        game.setSettings ({
+        game.setSettings({
             gridSize: {
                 rows: 4,
                 columns: 5
@@ -15,5 +15,20 @@ describe('game tests', () => {
 
         expect(settings.gridSize.rows).toBe(4)
         expect(settings.gridSize.columns).toBe(5)
+    })
+
+    it('start game', () => {
+        const game = new Game()
+
+        game.setSettings({
+            gridSize: {
+                rows: 4,
+                columns: 5
+            }
+        })
+
+        expect(game.status).toBe('pending')
+        game.start()
+        expect(game.status).toBe('in-process')
     })
 })
